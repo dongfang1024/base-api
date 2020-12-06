@@ -14,4 +14,17 @@ public class HelloController {
         return ResponseEntity.ok("Hello, world.");
     }
 
+
+    @GetMapping("sth")
+    public ResponseEntity<String> saySth(String name){
+        System.out.println("11111");
+
+        name = "yyyyy";
+
+        name = "Good evening.";
+        return ResponseEntity.ok("Today is warm.");
+
+
+    }
+
 }
