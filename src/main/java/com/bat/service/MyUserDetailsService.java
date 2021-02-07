@@ -1,6 +1,6 @@
 package com.bat.service;
 
-import com.bat.domain.User;
+import com.bat.entity.User;
 import com.bat.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

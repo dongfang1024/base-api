@@ -101,6 +101,9 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
         </dependency>
+        <!--统一异常处理-->
+
+
 
         <!--热部署-->
 <!--        <dependency>-->

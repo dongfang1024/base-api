@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20201210115631" author="dongfang">
+
+        <createTable tableName="s_user" remarks="用户表">
+            <column name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_demo_user_id"/>
+            </column>
+            <column name="username" type="varchar(50)" remarks="用户名">
+                <constraints unique="true" nullable="false" uniqueConstraintName="ux_user_login"/>
+            </column>
+            <column name="password" type="varchar(60)" remarks="密码">
+                <constraints nullable="true"/>
+            </column>
+            <column name="first_name" type="varchar(100)" remarks="名">
+                <constraints nullable="true"/>
+            </column>
+            <column name="last_name" type="varchar(100)" remarks="姓">
+                <constraints nullable="true"/>
+            </column>
+            <column name="gender" type="tinyint" remarks="性别">
+                <constraints nullable="true"/>
+            </column>
+            <column name="image_url" type="varchar(100)" remarks="头像地址">
+                <constraints nullable="true"/>
+            </column>
+            <column name="tel" type="varchar(20)" remarks="电话号码">
+                <constraints nullable="true"/>
+            </column>
+            <column name="job_number" type="varchar(50)" remarks="工号">
+                <constraints nullable="true"/>
+            </column>
+            <column name="wechat_account" type="varchar(50)" remarks="微信号">
+                <constraints nullable="true"/>
+            </column>
+            <column name="ding_talk_account" type="varchar(50)" remarks="钉钉号">
+                <constraints nullable="true"/>
+            </column>
+            <column name="email" type="varchar(100)" remarks="邮箱">
+                <constraints nullable="true"/>
+            </column>
+            <column name="remark" type="varchar(100)" remarks="备注"/>
+            <column name="created_time" type="datetime" remarks="创建时间"/>
+            <column name="created_by" type="varchar(30)" remarks="创建人"/>
+            <column name="updated_time" type="datetime" remarks="更新时间"/>
+            <column name="updated_by" type="varchar(30)" remarks="更新人"/>
+            <column name="delete_flag" type="boolean" remarks="是否删除"/>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <createIndex tableName="s_user" indexName="idxUserFirstName">
+            <column name="first_name"/>
+        </createIndex>
+        <createIndex tableName="s_user" indexName="idxUserLastName">
+            <column name="last_name"/>
+        </createIndex>
+        <createIndex tableName="s_user" indexName="idxUserUsername">
+            <column name="username"/>
+        </createIndex>
+    </changeSet>
+
+    <!--
+    Load sample data generated with Faker.js
+    - This data can be easily edited using a CSV editor (or even MS Excel) and
+      is located in the 'src/main/resources/config/liquibase/fake-data' directory
+    - By default this data is applied when running with the JHipster 'dev' profile.
+      This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+      Spring Boot configuration key.
+-->
+    <changeSet id="2021020716235" author="clint" context="faker">
+        <loadData
+                file="liquibase/project/base/data/user.csv"
+                separator=";"
+                tableName="s_user">
+            <column name="delete_flag" type="boolean"/>
+            <column name="created_time" type="timestamp"/>
+        </loadData>
+        <dropDefaultValue tableName="s_user" columnName="created_time" columnDataType="datetime"/>
+    </changeSet>
+
+</databaseChangeLog>

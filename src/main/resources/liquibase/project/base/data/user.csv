@@ -1,0 +1,2 @@
+id;username;password;first_name;last_name;gender;email;job_number;created_by;updated_by;delete_flag;remark
+1;admin;admin;tony;mark;1;admin@qq.com;m1001;system;system;false;first user to initialize the project

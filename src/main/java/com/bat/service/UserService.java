@@ -1,6 +1,6 @@
 package com.bat.service;
 
-import com.bat.domain.User;
+import com.bat.entity.User;
 import com.bat.repo.UserRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
